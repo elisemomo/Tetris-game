@@ -54,8 +54,8 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'Docker_hub', toolName: 'Docker_hub'){   
                        sh "docker build -t tetrisgame ."
-                       sh "docker tag tetrisv1 mukomelise/tetrisgame:latest "
-                       sh "docker push mukomelise/tetrisgame:latest "
+                       sh "docker tag tetrisgame mukomelise/tetrisgame:latest"
+                       sh "docker push mukomelise/tetrisgame:latest"
                     }
                 }
             }
