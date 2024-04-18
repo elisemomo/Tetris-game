@@ -65,18 +65,5 @@ pipeline{
                 sh "trivy image mukomelise/tetrisgame:latest > trivyimage.txt" 
             }
         }
-       stage('Update Deployment File') {
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
-                       NEW_IMAGE_NAME = "aakibkhan1212/tetrisv1:latest"  
-                       sh "sed -i 's|image: .*|image: $NEW_IMAGE_NAME|' deployment.yml"
-                       sh 'git add deployment.yml'
-                       sh "git commit -m 'Update deployment image to $NEW_IMAGE_NAME'"
-                       sh "git push @github.com/${GIT_USER_NAME}/${GIT_REPO_NAME">https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main"
-                    }
-                }
-            }
-        } 
     }
 }
