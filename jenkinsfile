@@ -60,7 +60,7 @@ pipeline{
                 }
             }
         }
-        stage("TRIVY"){
+        stage("TRIVY SCAN"){
             steps{
                 sh "trivy image mukomelise/tetrisgame:latest > trivyimage.txt" 
             }
