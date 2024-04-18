@@ -13,7 +13,7 @@ pipeline{
                 cleanWs()
             }
         }
-        stage('Checkout from Git'){
+        stage('Checkout from Github'){
             steps{
                 git branch: 'main', url: 'https://github.com/elisemomo/Tetris-game.git'
             }
